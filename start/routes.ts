@@ -12,12 +12,6 @@ const MomentsController = () => import('#controllers/moments_controller')
 
 router
   .group(() => {
-    router.get('/', async () => {
-      return {
-        hello: 'world',
-      }
-    })
-
-    router.resource('/moments', [MomentsController, 'store'])
+    router.resource('/moments', MomentsController).apiOnly()
   })
   .prefix('/api')
