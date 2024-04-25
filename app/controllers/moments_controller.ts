@@ -29,4 +29,35 @@ export default class MomentsController {
       data: moment,
     }
   }
+
+  async index() {
+    const moments = await Moment.all()
+
+    return {
+      data: moments,
+    }
+  }
+
+  async show({ params }: HttpContext) {
+    if (params.id) {
+      const moment = await Moment.findOrFail(params.id)
+
+      return {
+        data: moment,
+      }
+    }
+  }
+
+  async destroy({ params }: HttpContext) {
+    if (params.id) {
+      const moment = await Moment.findOrFail(params.id)
+
+      await moment.delete()
+
+      return {
+        message: 'Momento deletado com sucesso!',
+        data: moment,
+      }
+    }
+  }
 }
