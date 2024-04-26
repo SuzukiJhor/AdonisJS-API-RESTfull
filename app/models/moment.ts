@@ -1,9 +1,13 @@
 import { DateTime } from 'luxon'
-import { BaseModel, column } from '@adonisjs/lucid/orm'
-import Coment from './coment'
+import { BaseModel, column, hasMany } from '@adonisjs/lucid/orm'
+import type { HasMany } from '@adonisjs/lucid/types/relations'
+
+import Comment from '#models/comment'
 
 export default class Moment extends BaseModel {
-  @hasMany(() => Coment)
+  @hasMany(() => Comment)
+  declare comments: HasMany<typeof Comment>
+
   @column({ isPrimary: true })
   declare id: number
 
@@ -22,4 +26,3 @@ export default class Moment extends BaseModel {
   @column.dateTime({ autoCreate: true, autoUpdate: true })
   declare updatedAt: DateTime
 }
-99
