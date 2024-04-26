@@ -31,7 +31,7 @@ export default class MomentsController {
   }
 
   async index() {
-    const moments = await Moment.all()
+    const moments = await Moment.query().preload('comments')
 
     return {
       data: moments,
@@ -41,7 +41,7 @@ export default class MomentsController {
   async show({ params }: HttpContext) {
     if (params.id) {
       const moment = await Moment.findOrFail(params.id)
-
+      await moment.load('comments')
       return {
         data: moment,
       }
