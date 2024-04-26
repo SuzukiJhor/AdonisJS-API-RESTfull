@@ -5,11 +5,14 @@ export default class Comment extends BaseModel {
   @column({ isPrimary: true })
   declare id: number
 
-  @column
+  @column()
   declare username: string
 
-  @column
+  @column()
   declare text: string
+
+  @column()
+  declare momentId: number
 
   @column.dateTime({ autoCreate: true })
   declare createdAt: DateTime
