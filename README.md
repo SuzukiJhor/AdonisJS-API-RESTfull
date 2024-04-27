@@ -6,7 +6,7 @@
 
 ## Utilizing Relationships:
 - Implementation of relationships between different resources of the API.
-- Use of concepts such as one-to-one, one-to-many, and many-to-many associations to model connections between data.
+- Use of concepts such  one-to-many associations to model connections between data.
 
 ## Connecting to a SQLite Database:
 - Establishing a connection to a SQLite database to store and retrieve data for the application.
